@@ -446,7 +446,7 @@ header {
 /*end Employees Employee_info */
 /*Employees Employee_img */
 .employee__img {
-	background-image: url("/img/female.jpeg");
+	background-image: url("img/female.jpeg");
 	background-size: cover;
 	width: 198.7px;
 	height: 215px;
