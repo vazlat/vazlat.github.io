@@ -284,7 +284,7 @@ header {
 }
 
 .feature__heading__desc {
-	width: 520px;
+	max-width: 520px;
 	font-size: 16px;
 	line-height: 28px;
 	color: #737373;
@@ -303,6 +303,8 @@ header {
 	justify-content: center;
 	padding-top: 82px;
 	color: #585858;
+	text-align: center;
+	align-items: center;
 }
 
 .feature__nav-links a{
@@ -371,83 +373,100 @@ header {
 /*Team Content*/
 .team__content {
 	margin-top: 60px;
-	display: grid;
-	grid-template-areas: 
-	"selected-image selected-employee"
-	"selected-image employees-imgs";
-	grid-template-columns: 320px 1fr;
-	grid-gap: 0 75px;
+	position: relative;
 }
-/*Team Content Selected_image*/
-.team__content__selected-image {
-	/*max-height: 460px;*/
-	grid-area: selected-image;
+/*Team Content Container*/
+.team__content__container {
+	display: flex;
+	width: 855px;
+	margin-left: auto;
+	height: 460px;
 }
-/*end Team Content Selected_image*/
-/*Team Content Selected_employee*/
-.team__content__selected-employee {
-	color: #585858;
-	max-width: 640px;
-	grid-area: selected-employee;
+/*Team Content Employees*/
+.team__content__employees {
+	display: flex;
+	margin-top: auto;
 }
 
-.employee__full-name {
+/*Employees Employee_info */
+.employee__info {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s;
+	color: #585858;
+	top: 0;
+	width: 855px;
+	right: 0;
+}
+
+.is-selected .employee__info {
+	opacity: 1;
+	visibility: visible;
+}
+
+.employee__info__full-name {
 	font-size: 30px;
 	letter-spacing: 0.3px;
 	text-transform: uppercase;
-	padding-top: 15px;
+	padding-top: 5px;
 }
 
-.selected-employee__info {
+.employee__info__text{
 	font-size: 16px;
 	line-height: 28px;
 	padding-top: 20px;
+	max-width: 640px;
 }
 
-.selected-employee__socials {
-	padding-top: 30px;
+.employee__info__socials {
+	padding-top: 35px;
 }
 
-.selected-employee__socials__links a{
+.employee__info__socials__links a{
 	color: #585858;
 	font-style: italic;
 	letter-spacing: 0.9px;
 	line-height: 24px;
 }
 
-.selected-employee__socials__links
+.employee__info__socials__links
  a:hover {
 	color: #ff2d2d;
 }
 
-.selected-employee__socials__links {
+.employee__info__socials__links {
 	display: flex;
+	flex-wrap: wrap;
 }
 
-.selected-employee__socials__item {
+.employee__info__socials__item {
 	padding-right: 30px;
 }
-/*end Team Content Selected_employee*/
-/*Team Content Employees_imgs*/
-.team__content__employees-imgs {
-	display: flex;
-	grid-area: employees-imgs;
-	align-self: flex-end;
-}
-
-.employees-img__item {
-	max-width: 195px;
-	max-height: 215px;
+/*end Employees Employee_info */
+/*Employees Employee_img */
+.employee__img {
+	background-image: url("/img/female.jpeg");
+	background-size: cover;
+	width: 198.7px;
+	height: 215px;
 	margin-right: 20px;
 	position: relative;
 	cursor: pointer;
+	z-index: 500;
 }
 
-.employees-img__item:last-child {
-	margin-right: 0;
+.is-selected .employee__img{
+	width: 320px;
+	height: 460px;
+	position: absolute;
+	cursor: default;
+	transition: height 0.75s, width 0.75s,
+	 transform 0.75s;
+	z-index: 505;
 }
 
-.employees-img__full-name {
+.employee__img__full-name {
 	text-align: center;
 	text-transform: uppercase;
 	color: #fff;
@@ -461,16 +480,19 @@ header {
 	padding-bottom: 10px;
 	opacity: 0;
 }
-/*end Team Content Employees_imgs*/
-.employees-img__item:hover 
-.employees-img__full-name {
+
+.employees__item:not(.is-selected)
+.employee__img:hover
+.employee__img__full-name {
 	opacity: 1;
 }
+/*end Employees Employee_img */
+/*end Team Content Employees*/
 /*end Team Content*/
 /*end Team*/
 /*Subscribe*/
 .subscribe {
-	background-image: url(/agnecy/img/city.jpg);
+	background-image: url(/img/city.jpg);
 	color: #fff;
 	margin-top: 110px;
 	background-position-y: -400px;
@@ -569,6 +591,7 @@ header {
 	grid-template-columns: 338px 338px;
 	grid-template-rows: 70px 250px 70px;
 	grid-gap: 45px 55px;
+	overflow: hidden;
 }
 
 .contact__form input {
