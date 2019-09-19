@@ -446,7 +446,7 @@ header {
 /*end Employees Employee_info */
 /*Employees Employee_img */
 .employee__img {
-	background-image: url("/img/female.jpg");
+	background-image: url(https://vazlat.github.io/agnecy/img/female.jpg);
 	background-size: cover;
 	width: 198.7px;
 	height: 215px;
@@ -492,7 +492,7 @@ header {
 /*end Team*/
 /*Subscribe*/
 .subscribe {
-	background-image: url(/img/city.jpg);
+	background-image: url(https://vazlat.github.io/agnecy/img/city.jpg);
 	color: #fff;
 	margin-top: 110px;
 	background-position-y: -400px;
