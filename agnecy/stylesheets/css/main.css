@@ -442,11 +442,12 @@ header {
 
 .employee__info__socials__item {
 	padding-right: 30px;
+	margin-bottom: 10px;
 }
 /*end Employees Employee_info */
 /*Employees Employee_img */
 .employee__img {
-	background-image: url(https://vazlat.github.io/agnecy/img/female.jpg);
+	background-image: url("https://vazlat.github.io/agnecy/img/female.jpg");
 	background-size: cover;
 	width: 198.7px;
 	height: 215px;
@@ -500,14 +501,13 @@ header {
 
 .subscribe-box {
 	text-align: center;
-	padding-top: 145px;
+	padding-top: 130px;
 	padding-bottom: 140px;
 }
 /*Subscribe Title*/
 .subscribe__title {
 	font-size: 42px;
 	letter-spacing: 1.05px;
-	line-height: 24px;
 	font-weight: bold;
 }
 /*end Subscribe Title*/
@@ -515,7 +515,7 @@ header {
 .subscribe__desc {
 	font-size: 16px;
 	line-height: 28px;
-	padding-top: 40px;
+	padding-top: 25px;
 }
 /*end Subscribe Description*/
 /*Subscribe Form*/
@@ -557,9 +557,10 @@ header {
 .contact-box {
 	display: grid;
 	grid-template-areas: 
-	"heading ."
-	"form info";
-	grid-template-columns: 730px 1fr;
+	 "heading ."
+	 "form info";
+	grid-template-columns: 
+	 minmax(500px, 730px) minmax(400px, 1fr);
 	grid-gap: 75px 105px;
 }
 /*Contact Heading*/
@@ -585,13 +586,13 @@ header {
 	grid-area: form;
 	display: grid;
 	grid-template-areas: 
-	"name email"
-	"messege messege"
-	"btn btn";
-	grid-template-columns: 338px 338px;
+	 "name email"
+	 "messege messege"
+	 "btn btn";
+	grid-template-columns:
+	 repeat(2, minmax(200px, 338px));
 	grid-template-rows: 70px 250px 70px;
 	grid-gap: 45px 55px;
-	overflow: hidden;
 }
 
 .contact__form input {
@@ -599,7 +600,6 @@ header {
 	border: none;
 	padding: 25px 50px;
 	border-radius: 10px;
-	max-width: 338px;
 }
 
 .contact__form__name {
@@ -640,8 +640,6 @@ header {
 	background-color: #2d2d2d;
 	color: #fff;
 	padding: 140px 0 125px 80px;
-	/*width: 36.5vw;*/
-	max-width: 575px;
 }
 
 .contact__info-box {
