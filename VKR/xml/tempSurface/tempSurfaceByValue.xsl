@@ -8,17 +8,17 @@
             <thead>
                 <tr>
                     <th id="tempSurface-number" class="number">№</th>
-                    <th id="tempSurface-title" class="title">Название</th>
-                    <th id="tempSurface-unit" class="unit">Единица измерения</th>
+                    <th id="tempSurface-title" class="title">Name</th>
+                    <th id="tempSurface-unit" class="unit">Unit of measurement</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="tempSurface-value" class="value sort sorted_asc" onclick="SortByValue('tempSurface')">Значение</th>
+                            <th id="tempSurface-value" class="value sort sorted_asc" onclick="SortByValue('tempSurface')">Value</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="tempSurface-value" class="value sort sorted_dec" onclick="SortByValue('tempSurface')">Значение</th>
+                            <th id="tempSurface-value" class="value sort sorted_dec" onclick="SortByValue('tempSurface')">Value</th>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <th id="tempSurface-date" class="date sort" onclick="SortByDate('tempSurface')">Дата</th>
+                    <th id="tempSurface-date" class="date sort" onclick="SortByDate('tempSurface')">Date</th>
                 </tr>
             </thead>
             <tbody>

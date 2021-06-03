@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="microclimate-number" class="number">№</th>
-                    <th id="microclimate-title" class="title sort" onclick="SortByTitle('microclimate')">Название</th>
-                    <th id="microclimate-unit" class="unit sort" onclick="SortByUnit('microclimate')">Единица измерения</th>
-                    <th id="microclimate-value" class="value sort" onclick="SortByValue('microclimate')">Значение</th>
+                    <th id="microclimate-title" class="title sort" onclick="SortByTitle('microclimate')">Name</th>
+                    <th id="microclimate-unit" class="unit sort" onclick="SortByUnit('microclimate')">Unit of measurement</th>
+                    <th id="microclimate-value" class="value sort" onclick="SortByValue('microclimate')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="microclimate-date" class="date sort sorted_asc" onclick="SortByDate('microclimate')">Дата</th>
+                            <th id="microclimate-date" class="date sort sorted_asc" onclick="SortByDate('microclimate')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="microclimate-date" class="date sort sorted_dec" onclick="SortByDate('microclimate')">Дата</th>
+                            <th id="microclimate-date" class="date sort sorted_dec" onclick="SortByDate('microclimate')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>

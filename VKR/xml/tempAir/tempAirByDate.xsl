@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="tempAir-number" class="number">№</th>
-                    <th id="tempAir-title" class="title">Название</th>
-                    <th id="tempAir-unit" class="unit">Единица измерения</th>
-                    <th id="tempAir-value" class="value sort" onclick="SortByValue('tempAir')">Значение</th>
+                    <th id="tempAir-title" class="title">Name</th>
+                    <th id="tempAir-unit" class="unit">Unit of measurement</th>
+                    <th id="tempAir-value" class="value sort" onclick="SortByValue('tempAir')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="tempAir-date" class="date sort sorted_asc" onclick="SortByDate('tempAir')">Дата</th>
+                            <th id="tempAir-date" class="date sort sorted_asc" onclick="SortByDate('tempAir')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="tempAir-date" class="date sort sorted_dec" onclick="SortByDate('tempAir')">Дата</th>
+                            <th id="tempAir-date" class="date sort sorted_dec" onclick="SortByDate('tempAir')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>

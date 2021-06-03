@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="light-number" class="number">№</th>
-                    <th id="light-title" class="title">Название</th>
-                    <th id="light-unit" class="unit">Единица измерения</th>
-                    <th id="light-value" class="value sort" onclick="SortByValue('light')">Значение</th>
+                    <th id="light-title" class="title">Name</th>
+                    <th id="light-unit" class="unit">Unit of measurement</th>
+                    <th id="light-value" class="value sort" onclick="SortByValue('light')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="light-date" class="date sort sorted_asc" onclick="SortByDate('light')">Дата</th>
+                            <th id="light-date" class="date sort sorted_asc" onclick="SortByDate('light')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="light-date" class="date sort sorted_dec" onclick="SortByDate('light')">Дата</th>
+                            <th id="light-date" class="date sort sorted_dec" onclick="SortByDate('light')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>

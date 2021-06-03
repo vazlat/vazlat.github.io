@@ -8,17 +8,17 @@
             <thead>
                 <tr>
                     <th id="all-number" class="number">№</th>
-                    <th id="all-title" class="title sort" onclick="SortByTitle('all')">Название</th>
+                    <th id="all-title" class="title sort" onclick="SortByTitle('all')">Name</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="all-unit" class="unit sort sorted_asc" onclick="SortByUnit('all')">Единица измерения</th>
+                            <th id="all-unit" class="unit sort sorted_asc" onclick="SortByUnit('all')">Unit of measurement</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="all-unit" class="unit sort sorted_dec" onclick="SortByUnit('all')">Единица измерения</th>
+                            <th id="all-unit" class="unit sort sorted_dec" onclick="SortByUnit('all')">Unit of measurement</th>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <th id="all-value" class="value sort" onclick="SortByValue('all')">Значение</th>
-                    <th id="all-date" class="date sort" onclick="SortByDate('all')">Дата</th>
+                    <th id="all-value" class="value sort" onclick="SortByValue('all')">Value</th>
+                    <th id="all-date" class="date sort" onclick="SortByDate('all')">Date</th>
                 </tr>
             </thead>
             <tbody>

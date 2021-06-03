@@ -10,15 +10,15 @@
                     <th id="production-number" class="number">№</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="production-title" class="title sort sorted_asc" onclick="SortByTitle('production')">Название</th>
+                            <th id="production-title" class="title sort sorted_asc" onclick="SortByTitle('production')">Name</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="production-title" class="title sort sorted_dec" onclick="SortByTitle('production')">Название</th>
+                            <th id="production-title" class="title sort sorted_dec" onclick="SortByTitle('production')">Name</th>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <th id="production-unit" class="unit sort" onclick="SortByUnit('production')">Единица измерения</th>
-                    <th id="production-value" class="value sort" onclick="SortByValue('production')">Значение</th>
-                    <th id="production-date" class="date sort" onclick="SortByDate('production')">Дата</th>
+                    <th id="production-unit" class="unit sort" onclick="SortByUnit('production')">Unit of measurement</th>
+                    <th id="production-value" class="value sort" onclick="SortByValue('production')">Value</th>
+                    <th id="production-date" class="date sort" onclick="SortByDate('production')">Date</th>
                 </tr>
             </thead>
             <tbody>

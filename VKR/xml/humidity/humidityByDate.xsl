@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="humidity-number" class="number">№</th>
-                    <th id="humidity-title" class="title">Название</th>
-                    <th id="humidity-unit" class="unit">Единица измерения</th>
-                    <th id="humidity-value" class="value sort" onclick="SortByValue('humidity')">Значение</th>
+                    <th id="humidity-title" class="title">Name</th>
+                    <th id="humidity-unit" class="unit">Unit of measurement</th>
+                    <th id="humidity-value" class="value sort" onclick="SortByValue('humidity')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="humidity-date" class="date sort sorted_asc" onclick="SortByDate('humidity')">Дата</th>
+                            <th id="humidity-date" class="date sort sorted_asc" onclick="SortByDate('humidity')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="humidity-date" class="date sort sorted_dec" onclick="SortByDate('humidity')">Дата</th>
+                            <th id="humidity-date" class="date sort sorted_dec" onclick="SortByDate('humidity')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>

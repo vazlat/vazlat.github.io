@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><xsl:value-of select="title"/></h5>
                     <div class="card-text">
-                        <div class="">Значение: <xsl:value-of select="value"/><xsl:value-of select="unit"/></div>
+                        <div class="">Value: <xsl:value-of select="value"/><xsl:value-of select="unit"/></div>
                         <div class="">
                             <xsl:value-of select="concat(
                             substring(date,9,2),'.',

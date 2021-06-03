@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="production-number" class="number">№</th>
-                    <th id="production-title" class="title sort" onclick="SortByTitle('production')">Название</th>
-                    <th id="production-unit" class="unit sort" onclick="SortByUnit('production')">Единица измерения</th>
-                    <th id="production-value" class="value sort" onclick="SortByValue('production')">Значение</th>
+                    <th id="production-title" class="title sort" onclick="SortByTitle('production')">Name</th>
+                    <th id="production-unit" class="unit sort" onclick="SortByUnit('production')">Unit of measurement</th>
+                    <th id="production-value" class="value sort" onclick="SortByValue('production')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="production-date" class="date sort sorted_asc" onclick="SortByDate('production')">Дата</th>
+                            <th id="production-date" class="date sort sorted_asc" onclick="SortByDate('production')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="production-date" class="date sort sorted_dec" onclick="SortByDate('production')">Дата</th>
+                            <th id="production-date" class="date sort sorted_dec" onclick="SortByDate('production')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>

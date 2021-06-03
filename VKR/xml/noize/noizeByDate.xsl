@@ -8,15 +8,15 @@
             <thead>
                 <tr>
                     <th id="noize-number" class="number">№</th>
-                    <th id="noize-title" class="title">Название</th>
-                    <th id="noize-unit" class="unit">Единица измерения</th>
-                    <th id="noize-value" class="value sort" onclick="SortByValue('noize')">Значение</th>
+                    <th id="noize-title" class="title">Name</th>
+                    <th id="noize-unit" class="unit">Unit of measurement</th>
+                    <th id="noize-value" class="value sort" onclick="SortByValue('noize')">Value</th>
                     <xsl:choose>
                         <xsl:when test="$sortOrder = 'ascending'">
-                            <th id="noize-date" class="date sort sorted_asc" onclick="SortByDate('noize')">Дата</th>
+                            <th id="noize-date" class="date sort sorted_asc" onclick="SortByDate('noize')">Date</th>
                         </xsl:when>
                         <xsl:otherwise>
-                            <th id="noize-date" class="date sort sorted_dec" onclick="SortByDate('noize')">Дата</th>
+                            <th id="noize-date" class="date sort sorted_dec" onclick="SortByDate('noize')">Date</th>
                         </xsl:otherwise>
                     </xsl:choose>
                 </tr>
