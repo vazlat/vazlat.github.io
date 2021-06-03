@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Диплом</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        function loadXMLDoc(fileName)
+        {
+            if (window.ActiveXObject)
+            {
+                xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            else
+            {
+                xhttp = new XMLHttpRequest();
+            }
+            fileName += ( (fileName.indexOf('?') >= 0) ? '&' : '?' ) + '_=' + new Date().getTime();
+            xhttp.open("GET", fileName, false);
+            try
+            {
+                xhttp.responseType = "msxml-document";
+            }
+            catch(err)
+            {} // For IE11
+            xhttp.send(null);
+            return xhttp.responseXML;
+        }
+        function displayResultParam(xslName, modalName, param)
+        {
+            xml = loadXMLDoc("xml/Database.xml");
+            xsl = loadXMLDoc("xml/" + xslName + ".xsl");
+            // code for IE
+            if (window.ActiveXObject || xhttp.responseType == "msxml-document")
+            {
+                var xslt = new ActiveXObject("Msxml2.XSLTemplate");
+                var xsldoc = new ActiveXObject("Msxml2.FreeThreadedDOMDocument");
+                xsldoc.async = false;
+                xsldoc.load("xml/" + xslName + ".xsl");
+                xslt.stylesheet = xsldoc;
+                xslproc = xslt.createProcessor();
+                xslproc.input = xml;
+                for (var [key, value] of param)
+                {
+                    xslproc.addParameter(key, value);
+                }
+                xslproc.transform();
+                document.querySelector("#" + modalName).innerHTML = xslproc.output;
+            }
+            // code for Chrome, Firefox, Opera, etc.
+            else if (document.implementation && document.implementation.createDocument)
+            {
+                xsltProcessor = new XSLTProcessor();
+                for (var [key, value] of param)
+                {
+                    xsltProcessor.setParameter(null, key, value);
+                }
+                xsltProcessor.importStylesheet(xsl);
+                resultDocument = xsltProcessor.transformToFragment(xml, document);
+                var old = document.querySelector("#" + modalName + " .tableXml");
+                if(!old)
+                {
+                    document.querySelector("#" + modalName).appendChild(resultDocument);
+                }
+                else
+                {
+                    document.querySelector("#" + modalName).replaceChild(resultDocument, old);
+                }
+            }
+        }
+        function createModals()
+        {
+            OutputDate();
+            OutputLab();
+        }
+    </script>
+</head>
+<body onload="createModals()">
+    <!-- MODALS -->
+    <!-- MODALS XSLT -->
+    <div id="dataModal" class="modalXml modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="allModalLabel">Database interface</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <select name="dataOut" onchange="OutputDate()">
+                        <option value="all" selected>All</option>
+                        <option value="microclimate">Microclimate</option>
+                        <option value="production">Production factors</option>
+                        <option value="tempAir">Air temperature</option>
+                        <option value="tempSurface">Surface temperature</option>
+                        <option value="humidity">Air humidity</option>
+                        <option value="noize">Noise</option>
+                        <option value="light">Illumination</option>
+                    </select>
+                    <!-- XSLT -->
+                    <div id="dataTable" class="table-responsive"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="labModal" class="modalXml modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="allModalLabel">Smart laboratory</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div id="labTable" class="modal-body container-fluid">
+                    <!-- XSLT -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /MODALS XSLT  -->
+    <div id="modalHow" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="allModalLabel">How does the IoT work?</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Basically, it is a network of networks in which people can communicate with devices, and devices can communicate with each other, react to changes in the environment and make decisions without human intervention. IoT devices function on their own, although people can configure them or provide access to data. IoT systems operate in real time and usually consist of a network of smart devices and a cloud platform to which they are connected via WiFi, Bluetooth, or other forms of communication. First, the devices collect data - for example, about the temperature in an apartment or the user's heart rate, then this data is sent to the cloud. There the software processes them. What happens when the temperature gets too high or there is a burglar in the house? The system notifies the user about this or performs further actions itself - for example, calls the police.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="modalThan" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="allModalLabel">How is IoT useful for humans?</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Many people associate the Internet of Things with a "smart" home. Thanks to technologies and devices developed by Google, Yandex, Amazon, Apple and others, users can make online purchases, adjust the temperature in the room, turn on the lights and music, and give voice commands to virtual assistants. You no longer need to worry that you forgot to turn off the iron or tap - just press a button in your smartphone, and the smart home will fix everything. The computer vision surveillance system will recognize everyone who passes by your apartment and compare the images with the police base. Today, a "smart" home in Russia is basically Yandex's intellectual assistant "Alice", which turns on music, searches for information on the Internet, advises films, adjusts the lighting and temperature in the house, and turns on the kettle. IoT enables companies to automate processes and reduce labor costs. This reduces the volume of waste, improves the quality of services provided, and makes the production process and logistics cheaper. IoT affects all industries. The introduction of the Internet of Things in the electric power industry improves the controllability of substations and power lines due to remote monitoring, and in healthcare it allows to move to a new level of diagnostics of diseases - “smart” devices control the patient's health indicators. In agriculture, smart farms and greenhouses meter fertilizer and water on their own. The introduction of IoT in logistics reduces the cost of transportation and minimizes the impact of the human factor. IoT is actively implemented in the oil and gas and mining industries. For example, the use of in-depth analytics on boreholes is helping the oil and gas industry to increase production from already depleted fields. And the Internet of Things in transport is the transport itself, electronic displays, navigators, security systems, surveillance cameras that interact with each other.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="modalFlaws" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="allModalLabel">Are there any disadvantages to the Internet of Things?</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                The main problem associated with the rapid development of IoT is security. Cybercriminals are constantly trying to hack remote monitoring devices for patients, databases with information about human health, intelligent car control systems, carry out phishing attacks, upload viruses to jailbroken devices, and even commit whole sabotage at factories. Therefore, participants in the IoT market need to learn how to protect their systems. Connecting more and more devices to the Internet will inevitably lead to job losses. For example, IoT systems will replace specialists in the maintenance, repair and installation of equipment. In addition, today the legal aspects of implementing the Internet of Things are rather vague.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="modalFuture" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="allModalLabel">The future of the Internet of Things!</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                It is projected that 25 billion devices will be connected to the Internet by 2021. Cybercriminals will continue to attack them because the IoT system is a reliable and fast way to distribute malware. Consumers, businesses and entire cities will increasingly use smart technology to save time and money. For example, refrigerators will be able to warn of imminent food spoilage, traffic lights with built-in video sensors will regulate traffic depending on traffic. Now, however, the key problem in IoT implementation is the lack of uniform standards. Therefore, existing solutions are difficult to integrate with each other, and new ones appear slower than they could. Another nuance is that “things” on the Internet of Things should be autonomous, that is, be able to receive energy from the environment, without human intervention.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- /Modals -->
+    <header>
+        <nav id="nav_main" class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">VazLab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#internet">Internet of things</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#data">Database interface</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lab">Smart laboratory</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content container">
+            <div class="content__row row">
+                <div class="content__col col-sm-8">
+                    <div class="content__heading">
+                        The Internet is real!
+                    </div>
+                    <div class="content__txt">
+                        Today, the number of devices connected to the Internet significantly exceeds the world's population. Various technical devices are networked to automate any processes. The concept of the Internet of Things is developing more and more actively and in the near future every home will become "smart".
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="internet" class="internet">
+            <div class="container">
+                <div class="intenet__title">
+                    <h2>Internet of things</h2>
+                </div>
+                <div class="internet__content row">
+                    <div class="card col-md-6 col-lg-3">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img src="./img/support.svg" alt="question">
+                            </div>
+                            <div class="card-title">
+                                Как устроен IoT?
+                            </div>
+                            <div class="card-text">
+                                Basically, it is a network of networks in which people can communicate with ...
+                            </div>
+                            <button class="card-btn btn" data-toggle="modal" data-target="#modalHow">
+                                Read
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card col-md-6 col-lg-3">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img src="./img/idea.svg" alt="idea">
+                            </div>
+                            <div class="card-title">
+                                How is IoT useful for humans?
+                            </div>
+                            <div class="card-text">
+                                Many people associate the Internet of Things with a "smart" home ...
+                            </div>
+                            <button class="card-btn btn" data-toggle="modal" data-target="#modalThan">
+                                Read
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card col-md-6 col-lg-3">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img src="./img/dislike.svg" alt="dislike">
+                            </div>
+                            <div class="card-title">
+                                Are there any disadvantages to the Internet of Things?
+                            </div>
+                            <div class="card-text">
+                                The main problem with the Internet of Things is security ...
+                            </div>
+                            <button class="card-btn btn" data-toggle="modal" data-target="#modalFlaws">
+                                Read
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card col-md-6 col-lg-3">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img src="./img/future.svg" alt="future">
+                            </div>
+                            <div class="card-title">
+                                The future of the Internet of Things!
+                            </div>
+                            <div class="card-text">
+                                According to forecasts, by 2021, 25 billion will be connected to the Internet ...
+                            </div>
+                            <button class="card-btn btn" data-toggle="modal" data-target="#modalFuture">
+                                Read
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="data" class="data container-fluid">
+            <div class="row">
+                <div class="data__content col-md-6">
+                    <h3 class="title">Database interface</h3>
+                    <div class="text">
+                        Here you can view the information stored in the database in the form of a table. It can be filtered by various categories and sorted in ascending and descending order by clicking on the table header.
+                    </div>
+                    <div class="btn_show">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dataModal">Show</button>
+                    </div>
+                </div>
+                <div class="data__img col-md-6">
+
+                </div>
+            </div>
+        </section>
+        <section id="lab" class="lab">
+            <div class="lab__title">
+                Smart laboratory
+            </div>
+            <div class="lab__content">
+                In the smart lab, you can see the measurement results from the sensors from the newest to the oldest. Depending on the values received from the sensors, it is indicated whether the parameter is at the optimal level,
+                at an acceptable level, exceeds or does not reach the acceptable level. Also, here you can get recommendations for improving the values of parameters that are outside the permissible level.
+            </div>
+            <div class="lab__btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labModal">Показать</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="navbar navbar-expand-lg">
+            ©2020 Zlatoustov V.A.
+        </nav>
+    </footer>
+</body>
+<script>
+    function scrollChange()
+    {
+        if(pageYOffset > (document.documentElement.clientHeight - document.getElementById("nav_main").clientHeight)/3)
+        {
+            if(!document.getElementById("nav_main").classList.contains("scroled"))
+            {
+                document.getElementById("nav_main").classList.add("scroled");
+            }
+        }
+        else
+        {
+            if(document.getElementById("nav_main").classList.contains("scroled"))
+            {
+                document.getElementById("nav_main").classList.remove("scroled");
+            }
+        }
+        return true;
+    }
+
+    window.addEventListener('scroll', function() {
+        scrollChange();
+    });
+    window.addEventListener('resize', function() {
+        scrollChange();
+    });
+
+    function SortDateTable(id)
+    {
+        var tableHead = document.querySelector("#"+id);
+        var isAsc = 0;
+        if(tableHead.classList.contains("sorted_asc"))
+        {
+            isAsc = 1;
+        }
+        return isAsc;
+    }
+
+    function SortByTitle(modalName)
+    {
+        var params = new Map();
+        if(SortDateTable(modalName + "-title") == 0)
+        {
+            params.set("sortOrder", "ascending");
+        }
+        else
+        {
+            params.set("sortOrder", "descending");
+        }
+        displayResultParam(modalName + '/' + modalName +'ByTitle', 'dataTable', params);
+    }
+    function SortByUnit(modalName)
+    {
+        var params = new Map();
+        if(SortDateTable(modalName + "-unit") == 0)
+        {
+            params.set("sortOrder", "ascending");
+        }
+        else
+        {
+            params.set("sortOrder", "descending");
+        }
+        displayResultParam(modalName + '/' + modalName +'ByUnit', 'dataTable', params);
+    }
+    function SortByValue(modalName)
+    {
+        var params = new Map();
+        if(SortDateTable(modalName + "-value") == 0)
+        {
+            params.set("sortOrder", "ascending");
+        }
+        else
+        {
+            params.set("sortOrder", "descending");
+        }
+        displayResultParam(modalName + '/' + modalName +'ByValue', 'dataTable', params);
+    }
+    function SortByDate(modalName)
+    {
+        var params = new Map();
+        if(SortDateTable(modalName + "-date") == 0)
+        {
+            params.set("sortOrder", "ascending");
+        }
+        else
+        {
+            params.set("sortOrder", "descending");
+        }
+        displayResultParam(modalName + '/' + modalName +'ByDate', 'dataTable', params);
+    }
+
+    function OutputDate()
+    {
+        var selectValue = GetSelectedValue();
+        var params = new Map();
+        params.set("sortOrder", "descending");
+        switch(selectValue)
+        {
+            case "all":
+                displayResultParam('all/allByDate', 'dataTable', params);
+            break;
+            case "microclimate":
+                displayResultParam('microclimate/microclimateByDate', 'dataTable', params);
+            break;
+            case "production":
+                displayResultParam('production/productionByDate', 'dataTable', params);
+            break;
+            case "tempAir":
+                displayResultParam('tempAir/tempAirByDate', 'dataTable', params);
+            break;
+            case "tempSurface":
+                displayResultParam('tempSurface/tempSurfaceByDate', 'dataTable', params);
+            break;
+            case "humidity":
+                displayResultParam('humidity/humidityByDate', 'dataTable', params);
+            break;
+            case "noize":
+                displayResultParam('noize/noizeByDate', 'dataTable', params);
+            break;
+
+            case "light":
+                displayResultParam('light/lightByDate', 'dataTable', params);
+            break;
+        }
+    }
+
+    function GetSelectedValue()
+    {
+        var selection = document.getElementsByName("dataOut")[0];
+        return selection[selection.selectedIndex].value;
+    }
+
+    function OutputLab()
+    {
+        var params = new Map();
+        displayResultParam('report/all', 'labTable', params);
+    }
+</script>
+</html>

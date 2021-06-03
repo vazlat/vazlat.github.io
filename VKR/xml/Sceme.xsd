@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+
+    <xs:element name="dataBase">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="measurement">
+                <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="metering" type="meteringInfo" maxOccurs="unbounded"></xs:element>
+                </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="consts">
+                <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="const" type="constsInfo" maxOccurs="unbounded"></xs:element>
+                </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="meteringInfo">
+    <xs:sequence>
+        <xs:element name="type" type="xs:string"/>
+        <xs:element name="title" type="xs:string"/>
+        <xs:element name="unit" type="xs:string"/>
+        <xs:element name="value" type="xs:decimal"/>
+        <xs:element name="date" type="xs:date"/>
+        <xs:element name="time" type="xs:time"/>
+    </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="constsInfo">
+    <xs:sequence>
+        <xs:element name="type" type="xs:string"/>
+        <xs:element name="title" type="xs:string"/>
+        <xs:element name="unit" type="xs:string"/>
+        <xs:element name="cold">
+            <xs:complexType>
+            <xs:sequence>
+                <xs:element name="optimal" type="minMax" maxOccurs="1"></xs:element>
+                <xs:element name="permissible" type="minMax" maxOccurs="1"></xs:element>
+            </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="warm">
+            <xs:complexType>
+            <xs:sequence>
+                <xs:element name="optimal" type="minMax" maxOccurs="1"></xs:element>
+                <xs:element name="permissible" type="minMax" maxOccurs="1"></xs:element>
+            </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="minMax">
+    <xs:sequence>
+        <xs:element name="min" type="xs:decimal"/>
+        <xs:element name="max" type="xs:decimal"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:schema>

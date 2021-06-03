@@ -1,0 +1,306 @@
+html
+{
+    scroll-behavior: smooth;
+}
+/* HEADER */
+header {
+    height: 100vh;
+    background-image: url("../img/earth-net.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+header nav {
+    position: fixed !important;
+    width: 100vw;
+    z-index: 10;
+}
+
+.navbar-toggler {
+    position: relative;
+    height: 20px;
+    right: 10px;
+}
+
+.navbar-toggler > span,
+.navbar-toggler > span::before,
+.navbar-toggler > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  right: 0px;
+}
+.navbar-toggler > span::before {
+  content: '';
+  top: -8px;
+}
+.navbar-toggler > span::after {
+  content: '';
+  top: 8px;
+}
+
+header a {
+    color: #fff;
+}
+
+nav.scroled {
+    background-color: #2A2859;
+}
+
+header a:hover {
+    color: #3b99ff;
+}
+
+header .content {
+    margin: 0 auto;
+    position: relative;
+    top: 30%;
+}
+
+header .content__row{
+    justify-content: center;
+}
+
+header .content__col {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 0 15px 30px 15px;
+}
+
+header .content__heading{
+    font-size: 3.5rem;
+}
+
+header .content__txt{
+    font-size: 1rem;
+}
+
+th {
+    word-wrap: break-word;
+}
+
+.navbar-brand {
+    border: 2px solid rgb(216, 65, 65) ;
+    border-radius: 90px;
+    border-bottom-style: none;
+    border-width: 3px 2px 0px 2px;
+    padding: 5px;
+    font-weight: bold;
+}
+/* /HEADER */
+/* MAIN */
+/* INTERNET */
+.internet {
+    background-color: #F6F6F6;
+    padding: 6rem;
+}
+
+.intenet__title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.internet h2 {
+    font-weight: bold;
+}
+
+.internet__content {
+    justify-content: space-between;
+}
+
+.internet__content .card {
+    background-color: inherit;
+    border: none;
+}
+
+.internet__content .card-body {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.internet__content .card-img {
+    height: 40px;
+    width: 40px;
+    align-self: center;
+}
+
+.card-img  img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.internet__content .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.internet__content .card-btn {
+    margin-top: 20px;
+    align-self: end;
+}
+/* /INTERNET */
+/* DATA */
+main .data__content {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #2A2859;
+    color: #fff;
+}
+
+.data__content .title {
+    margin-bottom: 1.5rem;
+}
+
+.data__content .text {
+    margin-bottom: 1.5rem;
+}
+
+main .data__img {
+    background-image: url("../img/cleandatabase.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.modalXml .modal-dialog {
+    max-width: 1140px;
+}
+
+.modalXml select {
+    margin-bottom: 15px;
+}
+
+.tableXml tr th{
+    position: relative;
+    font-size: 1rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+.tableXml .title {
+    min-width: 115px;
+}
+
+.tableXml .unit {
+    min-width: 127px;
+}
+
+.tableXml .value {
+    min-width: 115px;
+}
+
+.tableXml .date {
+    min-width: 79px;
+}
+
+.tableXml .sort:hover {
+    background: #cccccc;
+}
+
+.tableXml .sort::before {
+    content: "\2191";
+    position: absolute;
+    right: 1em;
+    opacity: 0.3;
+    /* display: block; */
+    bottom: 0.7em;
+}
+
+.tableXml .sort::after {
+    content: "\2193";
+    position: absolute;
+    right: 0.5em;
+    opacity: 0.3;
+    display: block;
+    bottom: 0.7em;
+}
+
+.tableXml .sorted_asc.sort::before {
+    opacity: 1;
+}
+
+.tableXml .sorted_dec.sort::after {
+    opacity: 1;
+}
+/* /DATA */
+/* LAB */
+.lab {
+    display: flex;
+    flex-direction: column;
+    padding: 6rem;
+    justify-content: center;
+    background-color: #F6F6F6;
+}
+
+.lab__title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.lab__content {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.lab__btn {
+    text-align: center;
+}
+
+#labModal .modal-dialog {
+    max-width: 1250px;
+}
+
+#labModal .card {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0;
+}
+
+#labModal .card-title {
+    min-height: 48px;
+}
+
+#labModal .cardRow {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: space-between;
+}
+
+#labModal .card-body {
+    padding: 1.25rem 0;
+    text-align: center;
+}
+
+#labModal .card-text {
+    min-height: 85px;
+    margin: 7px 0;
+}
+
+#labModal .recommend {
+    font-size: 0.7rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#labModal .modalMinMax .modal-content{
+    min-height: 80vh;
+}
+/* /LAB */
+/* /MAIN */
+footer {
+    background-color: #2A2859;
+    color: #fff;
+}
+
+footer nav{
+    justify-content: end !important;
+}
