@@ -4,113 +4,113 @@
   xsi:noNamespaceSchemaLocation="Sceme.xsd">
     <measurement>
         <metering>
-            <type>Микроклимат</type>
-            <title>Температура воздуха</title>
+            <type>Microclimate</type>
+            <title>Air temperature</title>
             <unit>&#8304;C</unit>
             <value>18.0</value>
             <date>2020-05-11</date>
             <time>10:40:00</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Температура воздуха</title>
+            <type>Microclimate</type>
+            <title>Air temperature</title>
             <unit>&#8304;C</unit>
             <value>24.0</value>
             <date>2020-05-11</date>
             <time>10:50:00</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Температура воздуха</title>
+            <type>Microclimate</type>
+            <title>Air temperature</title>
             <unit>&#8304;C</unit>
             <value>29.0</value>
             <date>2020-05-11</date>
             <time>11:00:00</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Темпе­ратура поверх­ностей</title>
+            <type>Microclimate</type>
+            <title>Surface temperature</title>
             <unit>&#8304;C</unit>
             <value>16</value>
             <date>2020-05-11</date>
             <time>10:40:02</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Темпе­ратура поверх­ностей</title>
+            <type>Microclimate</type>
+            <title>Surface temperature</title>
             <unit>&#8304;C</unit>
             <value>26.0</value>
             <date>2020-05-11</date>
             <time>10:50:02</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Темпе­ратура поверх­ностей</title>
+            <type>Microclimate</type>
+            <title>Surface temperature</title>
             <unit>&#8304;C</unit>
             <value>29.0</value>
             <date>2020-05-11</date>
             <time>11:00:02</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Относитель­ная влаж­ность воз­духа</title>
+            <type>Microclimate</type>
+            <title>Relative humidity</title>
             <unit>%</unit>
             <value>10</value>
             <date>2020-05-11</date>
             <time>10:40:03</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Относитель­ная влаж­ность воз­духа</title>
+            <type>Microclimate</type>
+            <title>Relative humidity</title>
             <unit>%</unit>
             <value>50</value>
             <date>2020-05-11</date>
             <time>10:50:03</time>
         </metering>
         <metering>
-            <type>Микроклимат</type>
-            <title>Относитель­ная влаж­ность воз­духа</title>
+            <type>Microclimate</type>
+            <title>Relative humidity</title>
             <unit>%</unit>
             <value>70</value>
             <date>2020-05-11</date>
             <time>11:00:03</time>
         </metering>
         <metering>
-            <type>Производственные факторы</type>
-            <title>Шум</title>
-            <unit>дБ</unit>
+            <type>Production factors</type>
+            <title>Noise</title>
+            <unit>db</unit>
             <value>25</value>
             <date>2020-05-11</date>
             <time>10:40:05</time>
         </metering>
         <metering>
-            <type>Производственные факторы</type>
-            <title>Шум</title>
-            <unit>дБ</unit>
+            <type>Production factors</type>
+            <title>Noise</title>
+            <unit>db</unit>
             <value>56</value>
             <date>2020-05-11</date>
             <time>10:50:05</time>
         </metering>
         <metering>
-            <type>Производственные факторы</type>
-            <title>Освещенность</title>
-            <unit>лк</unit>
+            <type>Production factors</type>
+            <title>Illumination</title>
+            <unit>lx</unit>
             <value>100</value>
             <date>2020-05-11</date>
             <time>10:40:07</time>
         </metering>
         <metering>
-            <type>Производственные факторы</type>
-            <title>Освещенность</title>
-            <unit>лк</unit>
+            <type>Production factors</type>
+            <title>Illumination</title>
+            <unit>lx</unit>
             <value>350</value>
             <date>2020-05-11</date>
             <time>10:50:07</time>
         </metering>
         <metering>
-            <type>Производственные факторы</type>
-            <title>Освещенность</title>
-            <unit>лк</unit>
+            <type>Production factors</type>
+            <title>Illumination</title>
+            <unit>lx</unit>
             <value>510</value>
             <date>2020-05-11</date>
             <time>11:00:07</time>
@@ -118,8 +118,8 @@
     </measurement>
     <consts>
         <const>
-            <type>Микроклимат</type>
-            <title>Температура воздуха</title>
+            <type>Microclimate</type>
+            <title>Air temperature</title>
             <unit>&#8304;C</unit>
             <cold>
                 <optimal>
@@ -143,8 +143,8 @@
             </warm>
         </const>
         <const>
-            <type>Микроклимат</type>
-            <title>Темпе­ратура поверх­ностей</title>
+            <type>Microclimate</type>
+            <title>Surface temperature</title>
             <unit>&#8304;C</unit>
             <cold>
                 <optimal>
@@ -168,8 +168,8 @@
             </warm>
         </const>
         <const>
-            <type>Микроклимат</type>
-            <title>Относитель­ная влаж­ность воз­духа</title>
+            <type>Microclimate</type>
+            <title>Relative humidity</title>
             <unit>%</unit>
             <cold>
                 <optimal>
@@ -193,9 +193,9 @@
             </warm>
         </const>
         <const>
-            <type>Производственные факторы</type>
-            <title>Шум</title>
-            <unit>дБ</unit>
+            <type>Production factors</type>
+            <title>Noise</title>
+            <unit>db</unit>
             <cold>
                 <optimal>
                     <min>0</min>
@@ -218,9 +218,9 @@
             </warm>
         </const>
         <const>
-            <type>Производственные факторы</type>
-            <title>Освещенность</title>
-            <unit>лк</unit>
+            <type>Production factors</type>
+            <title>Illumination</title>
+            <unit>lx</unit>
             <cold>
                 <optimal>
                     <min>300</min>

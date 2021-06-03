@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-            <xsl:for-each select="measurement/metering[title='Температура воздуха']">
+            <xsl:for-each select="measurement/metering[title='Air temperature']">
                 <xsl:sort select="value" order="{$sortOrder}"/>
                     <tr>
                         <th>

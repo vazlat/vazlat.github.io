@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-            <xsl:for-each select="measurement/metering[type='Микроклимат']">
+            <xsl:for-each select="measurement/metering[type='Microclimate']">
                 <xsl:sort select="date" order="{$sortOrder}"/>
                 <xsl:sort select="time" order="{$sortOrder}"/>
                     <tr>

@@ -34,28 +34,28 @@
                                             <xsl:when test="value &gt; $vConst/warm/permissible/max">
                                                 <!-- Выше нормы -->
                                                 <div class="recommend text-danger">
-                                                    Значение выше допустимого
+                                                    The value is higher than the permissible
                                                     <xsl:text>&#13;&#10;</xsl:text>
                                                     <xsl:choose>
-                                                        <xsl:when test="title = 'Температура воздуха'">
+                                                        <xsl:when test="title = 'Air temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите кондиционер
+                                                            Turn on the air conditioner
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Темпе­ратура поверх­ностей'">
+                                                        <xsl:when test="title = 'Surface temperature'">
                                                             <!-- Выше нормы -->
-                                                            Отключите обогреватель
+                                                            Unplug the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Относитель­ная влаж­ность воз­духа'">
+                                                        <xsl:when test="title = 'Relative humidity'">
                                                             <!-- Выше нормы -->
-                                                            Включите осушитель воздуха
+                                                            Turn on the dehumidifier
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Шум'">
+                                                        <xsl:when test="title = 'Noise'">
                                                             <!-- Выше нормы -->
-                                                            Уменьшите уровень шума
+                                                            Reduce noise
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Освещенность'">
+                                                        <xsl:when test="title = 'Illumination'">
                                                             <!-- Выше нормы -->
-                                                            Уменьшите уровень света
+                                                            Reduce the light level
                                                         </xsl:when>
                                                     </xsl:choose>
                                                 </div>
@@ -63,24 +63,24 @@
                                             <xsl:when test="value &lt; $vConst/warm/permissible/min">
                                                 <!-- Ниже нормы -->
                                                 <div class="recommend text-danger">
-                                                    Значение ниже допустимого
+                                                    Value below acceptable
                                                     <xsl:text>&#13;&#10;</xsl:text>
                                                     <xsl:choose>
-                                                        <xsl:when test="title = 'Температура воздуха'">
+                                                        <xsl:when test="title = 'Air temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите обогреватель
+                                                            Turn on the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Темпе­ратура поверх­ностей'">
+                                                        <xsl:when test="title = 'Surface temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите обогреватель
+                                                            Turn on the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Относитель­ная влаж­ность воз­духа'">
+                                                        <xsl:when test="title = 'Relative humidity'">
                                                             <!-- Выше нормы -->
-                                                            Включите увлажнитель воздуха
+                                                            Turn on the humidifier
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Освещенность'">
+                                                        <xsl:when test="title = 'Illumination'">
                                                             <!-- Выше нормы -->
-                                                            Увеличте уровень света
+                                                            Increase the light level
                                                         </xsl:when>
                                                     </xsl:choose>
                                                 </div>
@@ -88,14 +88,14 @@
                                             <xsl:otherwise>
                                                 <!-- Допустимое значение -->
                                                 <div class="recommend text-warning">
-                                                    Значение в предалах допустимого
+                                                    The value in the limits of the permissible
                                                 </div>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Оптимальное значение -->
-                                        <div class="recommend text-success">Значение оптимально</div>
+                                        <div class="recommend text-success">Value is optimal</div>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
@@ -108,28 +108,28 @@
                                             <xsl:when test="value &gt; $vConst/cold/permissible/max or value &lt; $vConst/cold/permissible/min">
                                                 <!-- Выше нормы -->
                                                 <div class="recommend text-danger">
-                                                    Значение выше допустимого
+                                                    The value is higher than the permissible
                                                     <xsl:text>&#13;&#10;</xsl:text>
                                                     <xsl:choose>
-                                                        <xsl:when test="title = 'Температура воздуха'">
+                                                        <xsl:when test="title = 'Air temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите кондиционер
+                                                            Turn on the air conditioner
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Темпе­ратура поверх­ностей'">
+                                                        <xsl:when test="title = 'Surface temperature'">
                                                             <!-- Выше нормы -->
-                                                            Отключите обогреватель
+                                                            Unplug the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Относитель­ная влаж­ность воз­духа'">
+                                                        <xsl:when test="title = 'Relative humidity'">
                                                             <!-- Выше нормы -->
-                                                            Включите осушитель воздуха
+                                                            Turn on the dehumidifier
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Шум'">
+                                                        <xsl:when test="title = 'Noise'">
                                                             <!-- Выше нормы -->
-                                                            Уменьшите уровень шума
+                                                            Reduce noise
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Освещенность'">
+                                                        <xsl:when test="title = 'Illumination'">
                                                             <!-- Выше нормы -->
-                                                            Уменьшите уровень света
+                                                            Reduce the light level
                                                         </xsl:when>
                                                     </xsl:choose>
                                                 </div>
@@ -137,37 +137,37 @@
                                             <xsl:when test="value &lt; $vConst/cold/permissible/min">
                                                 <!-- Ниже нормы -->
                                                 <div class="recommend text-danger">
-                                                    Значение ниже допустимого
+                                                    Value below acceptable
                                                     <xsl:text>&#13;&#10;</xsl:text>
                                                     <xsl:choose>
-                                                        <xsl:when test="title = 'Температура воздуха'">
+                                                        <xsl:when test="title = 'Air temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите обогреватель
+                                                            Turn on the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Темпе­ратура поверх­ностей'">
+                                                        <xsl:when test="title = 'Surface temperature'">
                                                             <!-- Выше нормы -->
-                                                            Включите обогреватель
+                                                            Turn on the heater
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Относитель­ная влаж­ность воз­духа'">
+                                                        <xsl:when test="title = 'Relative humidity'">
                                                             <!-- Выше нормы -->
-                                                            Включите увлажнитель воздуха
+                                                            Turn on the humidifier
                                                         </xsl:when>
-                                                        <xsl:when test="title = 'Освещенность'">
+                                                        <xsl:when test="title = 'Illumination'">
                                                             <!-- Выше нормы -->
-                                                            Увеличте уровень света
+                                                            Increase the light level
                                                         </xsl:when>
                                                     </xsl:choose>
                                                 </div>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <!-- Допустимое значение -->
-                                                <div class="recommend text-warning">Значение в предалах допустимого</div>
+                                                <div class="recommend text-warning">The value in the limits of the permissible</div>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Оптимальное значение -->
-                                        <div class="recommend text-success">Значение оптимально</div>
+                                        <div class="recommend text-success">Value is optimal</div>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:otherwise>
